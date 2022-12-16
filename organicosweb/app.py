@@ -114,5 +114,10 @@ def relatorio():
         total = total + produto["total"]
     return render_template('relatorio.html', relatorio = relatorio,total=total) 
 
+@app.route('/deleta_relatorio')
+def deleta_relatorio():
+    requests.delete(f'http://127.0.0.1:3000/deleta')
+    return redirect('/relatorio')
+
 if __name__ == '__main__':
     app.run(app.run(port=8085, host='0.0.0.0', debug=True))
